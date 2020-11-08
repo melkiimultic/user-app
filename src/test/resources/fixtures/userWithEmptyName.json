@@ -1,0 +1,6 @@
+{
+  "name": "",
+  "login": "login",
+  "password": "ChangedPassword1",
+  "roles": ["ADMIN"]
+}
