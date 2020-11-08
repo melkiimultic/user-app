@@ -68,7 +68,8 @@ class PostControllerTest {
         assertEquals("name", user.getName());
         assertEquals(1, user.getRoles().size());
         System.out.println(user.getRoles().get(0).getId());
-        //role
+
+        //role todo : this block should work
 //        List<Role> roles = roleRepository.findAll();
 //        assertEquals(1, roles.size());
 //        assertEquals(ADMIN, roles.get(0).getName());
