@@ -4,6 +4,7 @@ import com.julenka.molodec.userapplication.dtoObjects.DtoUser;
 import com.julenka.molodec.userapplication.dtoObjects.ResponseWithErrors;
 import com.julenka.molodec.userapplication.dtoObjects.ResponseWithoutErrors;
 import org.apache.logging.log4j.util.Strings;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
@@ -12,9 +13,8 @@ import java.util.List;
 @Service
 public class DtoUserValidatorService {
 
+    @Autowired
     private PasswordValidatorService passwordValidatorService;
-
-
 
     public Object validate(DtoUser dtoUser) {
         ResponseWithErrors errors = new ResponseWithErrors();
