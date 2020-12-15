@@ -96,7 +96,6 @@ public class GetControllerTest {
                 .andExpect(status().isOk())
                 .andReturn();
         String contentAsString = mvcResult.getResponse().getContentAsString();
-        System.out.println(contentAsString);
         JsonNode responseNodeUser = new ObjectMapper().readTree(contentAsString);
         assertEquals("user",responseNodeUser.get("name").asText());
         assertEquals("user1",responseNodeUser.get("login").asText());
@@ -107,8 +106,11 @@ public class GetControllerTest {
     @SneakyThrows
     @DisplayName("If such user doesn't exist-> return 404")
     public void noSuchUserInDB(){
-        mockMvc.perform(get("/user/user1"))
-                .andExpect(status().isNotFound());
+         MvcResult mvcResult = mockMvc.perform(get("/user/user1"))
+                .andExpect(status().isNotFound())
+                .andReturn();
+         String contentAsString = mvcResult.getResponse().getContentAsString();
+         assertEquals("Such a user doesn't exist! Try another login to continue.",contentAsString);
     }
     @BeforeEach
     void deleteAllUsers(){
