@@ -1,10 +1,10 @@
 package com.julenka.molodec.userapplication.exceptions;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.ResponseStatus;
+public class NoSuchEntityException extends Exception {
+    public NoSuchEntityException (String msg){
+        super(msg);
+    }
 
-@ResponseStatus(HttpStatus.NOT_FOUND)
-public class NoSuchEntityException extends RuntimeException {
 
     }
 
